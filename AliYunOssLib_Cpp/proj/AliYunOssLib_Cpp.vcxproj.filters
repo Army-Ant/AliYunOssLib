@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="aliyun-oss-c-sdk">
+      <UniqueIdentifier>{9ac45c0a-9936-497a-99f4-6682bb890f0b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_buf.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_crc64.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_define.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_fstack.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_http_io.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_list.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_log.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_status.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_string.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_transport.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_util.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_api.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_auth.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_define.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_resumable.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_util.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_xml.h">
+      <Filter>aliyun-oss-c-sdk</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

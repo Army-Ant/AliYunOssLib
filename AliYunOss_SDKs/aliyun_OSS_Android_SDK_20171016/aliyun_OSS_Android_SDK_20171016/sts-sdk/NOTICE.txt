@@ -1,0 +1,8 @@
+
+由于阿里云RAM产品已经正式上线，请移步相关页面开通相关产品和参考使用文档：
+
+RAM产品页: https://www.aliyun.com/product/ram
+
+RAM控制台：https://ram.console.aliyun.com/#/overview
+
+RAM文档中心：https://help.aliyun.com/product/28625.html
