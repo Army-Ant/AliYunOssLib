@@ -18,13 +18,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -42,7 +42,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -81,6 +86,46 @@
     <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_resumable.h" />
     <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_util.h" />
     <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_xml.h" />
+    <ClInclude Include="..\inc\armyantlib\AAAes.h" />
+    <ClInclude Include="..\inc\armyantlib\AABinary.h" />
+    <ClInclude Include="..\inc\armyantlib\AAClassPrivateHandle.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AAConfiguration.h" />
+    <ClInclude Include="..\inc\armyantlib\AADefine.h" />
+    <ClInclude Include="..\inc\armyantlib\AADigraph.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AAFragment.h" />
+    <ClInclude Include="..\inc\armyantlib\AAIStream.h" />
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Com.h" />
+    <ClInclude Include="..\inc\armyantlib\AAIStream_File.h" />
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Memory.h" />
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Pipe.h" />
+    <ClInclude Include="..\inc\armyantlib\AAJNITools.h" />
+    <ClInclude Include="..\inc\armyantlib\AAJson.h" />
+    <ClInclude Include="..\inc\armyantlib\AALog.h" />
+    <ClInclude Include="..\inc\armyantlib\AAMath.h" />
+    <ClInclude Include="..\inc\armyantlib\AAMathStructs.h" />
+    <ClInclude Include="..\inc\armyantlib\AAMessageQueue.h" />
+    <ClInclude Include="..\inc\armyantlib\AANeuron.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AANeuronNetwork.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AASocket.h" />
+    <ClInclude Include="..\inc\armyantlib\AASqlClient.h" />
+    <ClInclude Include="..\inc\armyantlib\AASqlStructs.h" />
+    <ClInclude Include="..\inc\armyantlib\AAStateMachine.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AAString.h" />
+    <ClInclude Include="..\inc\armyantlib\AATree.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AATripleMap.hpp" />
+    <ClInclude Include="..\inc\armyantlib\AA_end.h" />
+    <ClInclude Include="..\inc\armyantlib\AA_start.h" />
+    <ClInclude Include="..\inc\armyantlib\ArmyAnt.h" />
+    <ClInclude Include="..\inc\armyantlib\ArmyAntLib.h" />
+    <ClInclude Include="..\inc\armyantlib\C_AADefine.h" />
+    <ClInclude Include="..\inc\armyantlib\C_AANeuron.h" />
+    <ClInclude Include="..\inc\armyantlib\C_AAStream.h" />
+    <ClInclude Include="..\inc\armyantlib\C_ArmyAnt.h" />
+    <ClInclude Include="..\inc\constant.h" />
+    <ClInclude Include="..\inc\oss_request_options.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\inc\armyantlib\AASocket_ProtocolTypes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,12 @@
     <Filter Include="aliyun-oss-c-sdk">
       <UniqueIdentifier>{9ac45c0a-9936-497a-99f4-6682bb890f0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{7c4bfbff-366f-432b-98d1-4003c32bc075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ArmyAntLib">
+      <UniqueIdentifier>{496917e4-5258-4706-a4bf-3fabc2b4bc03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\aos_buf.h">
@@ -57,5 +63,121 @@
     <ClInclude Include="..\inc\aliyun-oss-c-sdk-3.5.0\oss_xml.h">
       <Filter>aliyun-oss-c-sdk</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\constant.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\oss_request_options.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AA_end.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AA_start.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAAes.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AABinary.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAClassPrivateHandle.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAConfiguration.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AADefine.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AADigraph.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAFragment.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAIStream.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Com.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAIStream_File.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Memory.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAIStream_Pipe.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAJNITools.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAJson.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AALog.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAMath.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAMathStructs.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAMessageQueue.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AANeuron.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AANeuronNetwork.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AASocket.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AASqlClient.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AASqlStructs.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAStateMachine.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AAString.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AATree.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\AATripleMap.hpp">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\ArmyAnt.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\ArmyAntLib.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\C_AADefine.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\C_AANeuron.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\C_AAStream.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\armyantlib\C_ArmyAnt.h">
+      <Filter>ArmyAntLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\inc\armyantlib\AASocket_ProtocolTypes.txt">
+      <Filter>ArmyAntLib</Filter>
+    </Text>
   </ItemGroup>
 </Project>
