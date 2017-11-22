@@ -53,6 +53,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_cplusplus;OS_WINDOWS;_MSVC;AA_USE_STATIC;_x86;_32BIT;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/apr;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/aprutil;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/mxml;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -62,6 +64,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_cplusplus;OS_WINDOWS;_MSVC;AA_USE_STATIC;_x86;_32BIT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/apr;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/aprutil;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include/mxml;../inc/aliyun-oss-c-sdk-3.5.0/third_party/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -122,10 +126,13 @@
     <ClInclude Include="..\inc\armyantlib\C_AAStream.h" />
     <ClInclude Include="..\inc\armyantlib\C_ArmyAnt.h" />
     <ClInclude Include="..\inc\constant.h" />
-    <ClInclude Include="..\inc\oss_request_options.h" />
+    <ClInclude Include="..\inc\oss_requester.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\inc\armyantlib\AASocket_ProtocolTypes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\oss_requester.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

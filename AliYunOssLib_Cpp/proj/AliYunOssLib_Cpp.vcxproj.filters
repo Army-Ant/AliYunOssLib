@@ -66,9 +66,6 @@
     <ClInclude Include="..\inc\constant.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\oss_request_options.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\armyantlib\AA_end.h">
       <Filter>ArmyAntLib</Filter>
     </ClInclude>
@@ -174,10 +171,18 @@
     <ClInclude Include="..\inc\armyantlib\C_ArmyAnt.h">
       <Filter>ArmyAntLib</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\oss_requester.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\inc\armyantlib\AASocket_ProtocolTypes.txt">
       <Filter>ArmyAntLib</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\oss_requester.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
