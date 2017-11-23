@@ -181,9 +181,147 @@ bool Requester::setBucketAcl(const char * bucket_name, BucketAcl acl)
 	aos_string_t bucket;
 	/* 初始化参数 */
 	aos_str_set(&bucket, bucket_name);
+
 	aos_table_t *resp_headers;
 	oss_acl_e oss_acl = OSS_ACL_PRIVATE;
 	auto s = oss_put_bucket_acl(sg_manager[this]->options, &bucket, oss_acl, &resp_headers);
+	return aos_status_is_ok(s);
+}
+
+bool Requester::uploadData(const char * bucket_name, const char * object_name, const void * data, int length)
+{
+	if (!sg_manager[this]->checkInitOK())
+		return false;
+
+	aos_string_t bucket;
+	aos_string_t object;
+	aos_list_t buffer;
+	/* 初始化参数 */
+	aos_str_set(&bucket, bucket_name);
+	aos_str_set(&object, object_name);
+	aos_list_init(&buffer);
+	aos_buf_t*content = aos_buf_pack(sg_manager[this]->options->pool, data, length);
+	aos_list_add_tail(&content->node, &buffer);
+
+
+	/* 上传文件 */
+	aos_table_t *headers = NULL;
+	aos_table_t *resp_headers = NULL;
+	auto s = oss_put_object_from_buffer(sg_manager[this]->options, &bucket, &object,&buffer, headers, &resp_headers);
+
+	return aos_status_is_ok(s);
+}
+
+bool Requester::uploadAppendData(const char * bucket_name, const char * object_name, const void * data, int length)
+{
+	if (!sg_manager[this]->checkInitOK())
+		return false;
+
+	aos_string_t bucket;
+	aos_string_t object;
+	aos_list_t buffer;
+	aos_table_t *resp_headers = NULL;
+	/* 初始化参数 */
+	aos_str_set(&bucket, bucket_name);
+	aos_str_set(&object, object_name);
+	aos_list_init(&buffer);
+	aos_buf_t*content = aos_buf_pack(sg_manager[this]->options->pool, data, length);
+	aos_list_add_tail(&content->node, &buffer);
+
+	/* 获取起始追加位置 */
+	char *next_append_position = NULL;
+	int64 position = 0;
+	auto s = oss_head_object(sg_manager[this]->options, &bucket, &object, aos_table_make(sg_manager[this]->pool, 0), &resp_headers);
+	if (aos_status_is_ok(s)) {
+		next_append_position = (char*)(apr_table_get(resp_headers, "x-oss-next-append-position"));
+		position = atoi(next_append_position);
+	}
+	else {
+		return false;
+	}
+
+	/* 追加文件 */
+	aos_list_init(&buffer);
+	content = aos_buf_pack(sg_manager[this]->pool, data, length);
+	aos_list_add_tail(&content->node, &buffer);
+	s = oss_append_object_from_buffer(sg_manager[this]->options, &bucket, &object, position, &buffer, aos_table_make(sg_manager[this]->pool, 0), &resp_headers);
+
+	return aos_status_is_ok(s);
+}
+
+bool Requester::uploadFile(const char * bucket_name, const char * object_name, const char * path)
+{
+	if (!sg_manager[this]->checkInitOK())
+		return false;
+
+	aos_string_t bucket;
+	aos_string_t object;
+	/* 初始化参数 */
+	aos_table_t *resp_headers = NULL;
+	auto headers = aos_table_make(sg_manager[this]->options->pool, 1);
+	aos_str_set(&bucket, bucket_name);
+	aos_str_set(&object, object_name);    
+	
+	/* 上传文件 */
+	aos_string_t file;
+	aos_str_set(&file, path);
+	auto s = oss_put_object_from_file(sg_manager[this]->options, &bucket, &object, &file, headers, &resp_headers);
+
+	return aos_status_is_ok(s);
+}
+
+bool Requester::uploadAppendFile(const char * bucket_name, const char * object_name, const char * path)
+{
+	if (!sg_manager[this]->checkInitOK())
+		return false;
+
+	aos_string_t bucket;
+	aos_string_t object;
+	aos_table_t *resp_headers = NULL;
+	/* 初始化参数 */
+	aos_str_set(&bucket, bucket_name);
+	aos_str_set(&object, object_name);
+	aos_string_t file;
+	aos_str_set(&file, path);
+
+	/* 获取起始追加位置 */
+	char *next_append_position = NULL;
+	int64 position = 0;
+	auto s = oss_head_object(sg_manager[this]->options, &bucket, &object, aos_table_make(sg_manager[this]->pool, 0), &resp_headers);
+	if (aos_status_is_ok(s)) {
+		next_append_position = (char*)(apr_table_get(resp_headers, "x-oss-next-append-position"));
+		position = atoi(next_append_position);
+	}
+	else {
+		return false;
+	}
+
+	/* 追加文件 */
+    s = oss_append_object_from_file(sg_manager[this]->options, &bucket, &object, position, &file, aos_table_make(sg_manager[this]->pool, 0), &resp_headers);
+
+	return aos_status_is_ok(s);
+}
+
+bool Requester::uploadFileWithPart(const char * bucket_name, const char * object_name, const char * path, int partSize, int threadNum)
+{
+	if (!sg_manager[this]->checkInitOK())
+		return false;
+
+	aos_string_t bucket;
+	aos_string_t object;
+	/* 初始化参数 */
+	aos_table_t *resp_headers = NULL;
+	auto headers = aos_table_make(sg_manager[this]->options->pool, 1);
+	aos_string_t upload_id;
+	aos_str_null(&upload_id);
+	aos_str_set(&bucket, bucket_name);
+	aos_str_set(&object, object_name);
+
+	/* 分片上传 */
+	aos_string_t file;
+	aos_str_set(&file, path);  
+	auto s = oss_upload_file(sg_manager[this]->options, &bucket, &object, &upload_id, &file, partSize, nullptr);
+
 	return aos_status_is_ok(s);
 }
 

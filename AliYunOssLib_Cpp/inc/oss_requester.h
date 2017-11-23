@@ -39,9 +39,15 @@ public: // bucket management
 	bool setBucketAcl(const char*bucket_name, BucketAcl acl);
 
 public: // file upload
-	bool uploadData(const char*bucket_name, const char*object_name, void*data, long long appendPos = 0);
-	bool uploadFile(const char*bucket_name, const char*object_name, const char*path, long long appendPos = 0);
-	bool uploadFileWithPart(const char*bucket_name, const char*object_name, const char*path, long long partSize, int threadNum = 1);
+	bool uploadData(const char*bucket_name, const char*object_name, const void*data, int length);
+	// Append data to an existing object, it will append to the tail, if the object does not exist, it will be create. 
+	bool uploadAppendData(const char*bucket_name, const char*object_name, const void*data, int length);
+	bool uploadFile(const char*bucket_name, const char*object_name, const char*path);
+	bool uploadAppendFile(const char*bucket_name, const char*object_name, const char*path);
+	//分片上传
+	//TODO: 需要设计分步的分片上传, 以及断点续传
+	bool uploadFileWithPart(const char*bucket_name, const char*object_name, const char*path, int partSize, int threadNum = 1);
+	//TODO: 完成文件元信息的设置方法
 	bool setFileInfo(/*...*/);
 
 public: // file download
